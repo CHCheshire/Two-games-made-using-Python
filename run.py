@@ -1,10 +1,27 @@
 import random 
-from words import word_list
+from animals import animals_list
+from countries import countries_list 
+from cities import cities_list 
 
 
-def get_word():
-    word = random.choice(word_list)
-    return word.upper()
+def choose_word_list():
+    player_choice = input("Please choose from one of the following options; 1 for animals, 2 for cities and 3 for countries: \n")
+    player_choice = int(player_choice)
+    if player_choice == 1:
+        print("You've chosen the animals list")
+        word = random.choice(animals_list)
+        return word.upper()
+    elif player_choice == 2:
+        print("You've chosen the cities list")
+        word = random.choice(cities_list)
+        return word.upper()
+    elif player_choice == 3:
+        print("You've chosen the countries list")
+        word = random.choice(countries_list)
+        return word.upper()
+    else:
+        print("Please pick from the list")
+        choose_word_list()
 
 
 def play(word):
@@ -36,7 +53,7 @@ def play(word):
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
                 print("You already guessed the word", guess)
-            elif guess != word: 
+            elif guess != word:
                 print(guess, "is not the word")
                 tries -= 1
                 guessed_words.append(guess)
@@ -51,7 +68,7 @@ def play(word):
     if guessed:
         print("Congratulations, you guessed the word!")
     else:
-        print("Sorry, you're out of tries. The word was" + word + ".") 
+        print("Sorry, you're out of tries. The word was " + word + ".")
 
 
 def display_hangman(tries):
@@ -130,11 +147,10 @@ def display_hangman(tries):
 
 
 def main():
-    word = get_word()
+    word = choose_word_list()
     play(word)
     while input("Play Again> (Y/N) ").upper == "Y":
-        word = get_word()
-        play(word)
+        choose_word_list()
 
 
 if __name__ == "__main__":

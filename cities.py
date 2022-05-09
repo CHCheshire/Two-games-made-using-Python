@@ -1,4 +1,4 @@
-word_list = [
+cities_list = [
     'dog',
     'cat',
     'fish',
