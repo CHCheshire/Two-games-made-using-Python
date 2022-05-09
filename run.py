@@ -1,7 +1,7 @@
-import random 
+import random
 from animals import animals_list
-from countries import countries_list 
-from cities import cities_list 
+from countries import countries_list
+from cities import cities_list
 
 
 def choose_word_list():
@@ -26,12 +26,12 @@ def choose_word_list():
 
 def play(word):
     word_complete = "_" * len(word)
-    guessed = False 
+    guessed = False
     guessed_ltrs = []
     guessed_words = []
-    tries = 6 
+    tries = 6
     print("Let's play a game of Hangman!")
-    while not guessed and tries > 0: 
+    while not guessed and tries > 0:
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_ltrs:
@@ -89,7 +89,7 @@ def display_hangman(tries):
                    |      O
                    |     \\|/
                    |      |
-                   |     / 
+                   |     /
                    -
                 """,
                 # head, torso, and both arms
@@ -99,7 +99,7 @@ def display_hangman(tries):
                    |      O
                    |     \\|/
                    |      |
-                   |      
+                   |
                    -
                 """,
                 # head, torso, and one arm
@@ -109,7 +109,7 @@ def display_hangman(tries):
                    |      O
                    |     \\|
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head and torso
@@ -119,7 +119,7 @@ def display_hangman(tries):
                    |      O
                    |      |
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head
@@ -127,19 +127,19 @@ def display_hangman(tries):
                    --------
                    |      |
                    |      O
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
                    -
                 """,
                 # initial empty state
                 """
                    --------
                    |      |
-                   |      
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
+                   |
                    -
                 """
     ]
@@ -151,6 +151,7 @@ def main():
     play(word)
     while input("Play Again> (Y/N) ").upper == "Y":
         choose_word_list()
+        play(word)
 
 
 if __name__ == "__main__":
