@@ -1,31 +1,26 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Two games made in Python
 
-Welcome CHCheshire,
+This is a web page made to host two games; Hangman and a text adventure game, Escape from the Manor. I made this as I wanted to both make a hangman game that would allow people to choose different themes and potential difficulty within that (i.e. if know more about animals than city names then one is easier than the other). For the text adventure game, I wanted to make a choose your own adventure game with the mini game within that of fighting the monsters within the Manor as you try to escape.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Features 
 
-## Reminders
+-__Hangman game__
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+    The game of hangman plays as follows: The user will be asked to choose their theme of words that they will play with, either from animals, cities and countries. Once chosen, the computer will then randomly choose a word from that list. The player then gets to guess either the letters of the word or the word itself and every wrong guess will build the hangman. If the player gets the right word, they'll win but if they guess incorrectly six times, they will lose and the correct word will be shown to them. Regardless of the result, the player will be given the option to play again if they so wish. 
 
-## Creating the Heroku app
+-__Hangman animals list__ 
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+    This is the list that the player can choose at the start of the hangman game that will make it so that all the words will be in the theme of animals.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+-__Hangman cities list__ 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+    This is the list that the player can choose at the start of the hangman game that will make it so that all the words will be in the theme of cities.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+-__Hangman countries list__ 
 
-Connect your GitHub repository and deploy as normal.
+    This is the list that the player can choose at the start of the hangman game that will make it so that all the words will be in the theme of countries.
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+## Testing 
+
