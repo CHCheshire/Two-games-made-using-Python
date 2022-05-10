@@ -11,4 +11,15 @@ cities_list = [
     'oslo',
     'warsaw',
     'tokyo',
-    'shanghai']
+    'shanghai',
+    'munich',
+    'leeds',
+    'hull',
+    'luxembourg',
+    'copenhagen',
+    'limerick',
+    'stavanger',
+    'wakefield',
+    'sydney',
+    'york',
+    'bristol']
