@@ -1,30 +1,46 @@
+import os
 import random
 from animals import animals_list
 from countries import countries_list
 from cities import cities_list
 
 
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def choose_word_list():
-    player_choice = input("Please choose from one of the following options; 1 for animals, 2 for cities and 3 for countries: \n")
-    player_choice = int(player_choice)
-    if player_choice == 1:
+    clear()
+    player_choice = input(
+        "Please choose from one of the following options\n"
+        "1 for animals:\n2 for cities:\n3 for countries:\n")
+    if player_choice == '1':
         print("You've chosen the animals list")
         word = random.choice(animals_list)
-        return word.upper()
-    elif player_choice == 2:
+        # return word.upper() 
+        play(word)
+    elif player_choice == '2':
         print("You've chosen the cities list")
         word = random.choice(cities_list)
-        return word.upper()
-    elif player_choice == 3:
+        # return word.upper()
+        play(word)
+    elif player_choice == '3':
         print("You've chosen the countries list")
         word = random.choice(countries_list)
-        return word.upper()
+        # return word.upper()
+        play(word)
     else:
-        print("Please pick from the list")
+        clear()
+        print(f"{player_choice} is not valid. Please pick from the list.\n")
         choose_word_list()
 
 
 def play(word):
+    word = word.upper()
+    clear()
     word_complete = "_" * len(word)
     guessed = False
     guessed_ltrs = []
@@ -32,8 +48,10 @@ def play(word):
     tries = 6
     print("Let's play a game of Hangman!")
     while not guessed and tries > 0:
+        print(f"!!!!!!!! {word} !!!!!!!!!")  # TODO
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
+            clear()
             if guess in guessed_ltrs:
                 print("You have already used that letter", guess)
             elif guess not in word:
@@ -69,6 +87,7 @@ def play(word):
         print("Congratulations, you guessed the word!")
     else:
         print("Sorry, you're out of tries. The word was " + word + ".")
+    play_again()
 
 
 def display_hangman(tries):
@@ -146,14 +165,18 @@ def display_hangman(tries):
     return stages[tries]
 
 
-def main():
-    word = choose_word_list()
-    play(word)
-    while input("Play Again> (Y/N) ").upper == "Y":
+def play_again():
+    restart = input("Play Again (Y/N) ").upper()
+    if restart == "Y":
         choose_word_list()
-        play(word)
+    elif restart == "N":
+        clear()
+        print("Thank you for playing Hangman")
+    else:
+        clear()
+        print(f"{restart} is an invalid option")
+        play_again()
 
 
 if __name__ == "__main__":
-    main()
-
+    choose_word_list()
