@@ -1,5 +1,6 @@
 import os
 import random
+import subprocess
 from animals import animals_list
 from countries import countries_list
 from cities import cities_list
@@ -16,7 +17,8 @@ def choose_word_list():
     clear()
     player_choice = input(
         "Please choose from one of the following options\n"
-        "1 for animals:\n2 for cities:\n3 for countries:\n")
+        "1 for animals:\n2 for cities:\n"
+        "3 for countries:\n4 to exit:\n")
     if player_choice == '1':
         print("You've chosen the animals list")
         word = random.choice(animals_list)
@@ -32,6 +34,9 @@ def choose_word_list():
         word = random.choice(countries_list)
         # return word.upper()
         play(word)
+    elif player_choice == '4':
+        print("Thank you for playing Hangman!")
+        subprocess.call(["python", "main_menu.py"])
     else:
         clear()
         print(f"{player_choice} is not valid. Please pick from the list.\n")
