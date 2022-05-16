@@ -31,7 +31,7 @@ def game():
 
 def zombie():
     zombie_choice = input("Zombie attack door, choose to either\n"
-                          "1 to hide:\n2 to fight:\n3 to jump out window:")
+                          "1 to hide:\n2 to fight:\n3 to jump out window:\n")
     if zombie_choice == '1':
         clear()
         print("Hide in closet")
@@ -42,10 +42,10 @@ def zombie():
         player_died()
     elif zombie_choice == '2':
         clear()
-        print("Player grabs pocketknife from bag and readies")
+        print("Player grabs pocket knife from bag and readies")
         time.sleep(2)
         print("Zombie breaks in and fight breaks out")
-        zombie_fight()
+        fight()
     elif zombie_choice == '3':
         clear()
         print("Jump out second floor window")
@@ -74,34 +74,130 @@ def player_died():
         player_died()
 
 
-def zombie_fight():
+def fight():
     print("Player has knife ready to attack zombie")
-    health = 3
+    health = 5
     hits = 0
     min = 1
     max = 20
-    while hits != 3 and health != 0:
+    while hits != 3 and health > 0:
         action = input("You can either:\n"
                        "Press 1 to attack with knife:\n"
                        "Press 2 to push zombie over:")
         if action == '1':
             attack = random.randint(min, max)
+            print("Rolling to hit zombie")
+            time.sleep(1)
             print(attack)
             if attack >= 8:
                 print("Hits zombie")
                 hits += 1
+            elif attack == 20:
+                print("Critical hit!")
+                hits += 3
             else:
                 print("Player misses and gets hit")
                 health -= 1
         if action == '2':
             push = random.randint(min, max)
             print(push)
-            if push >= 10:
+            if push >= 12:
                 print("Zombie falls, plunge knife into head\n")
                 hits = 3
             else:
                 print("Player fails and gets hit")
                 health -= 1
+    if hits == 3:
+        print("Zombie defeated")
+        zombie_loot()
+    else:
+        player_died()
+
+
+def zombie_loot():
+    lighter = 0
+    clear()
+    print("Stand over corpse, do you want to loot it?")
+    loot = input("Loot the corpse Y/N?").upper()
+    if loot == "Y":
+        print("You find a lighter")
+        lighter = 1 
+        corridor()
+    elif loot == "N":
+        print("Don't loot the corpse")
+        corridor()
+    else:
+        print(f"{loot} is an invalid option")
+        zombie_loot()
+
+
+def corridor():
+    print("Step out onto a corridor\n"
+          "zombies attacking people left\n"
+          "stairs to foyer and exit right.")
+    corridor_choice = input("1 to try to save people, 2 to try to exit")
+    if corridor_choice == '1':
+        print("You distract the zombies so others can escape.\n"
+              "You get overwhelmed and perish as they flee.")
+        time.sleep(2)
+        player_died()
+    elif corridor_choice == '2':
+        print("You grimace and flee, running down the stairs\n"
+              "and try to exit through the foyer")
+        time.sleep(2)
+        foyer_battle()
+    else:
+        clear()
+        print(f"{corridor_choice} is an invalid option")
+        corridor()
+
+
+def foyer_battle():
+    clear()
+    health = 5
+    hits = 0
+    min = 1
+    max = 20
+    print("As you round the corner to the stairs leading down to the foyer\n"
+          "A crazed old man stands in the foyer, babbling nonsense\n"
+          "He wields a knife and dressed in what look to be occult robes\n"
+          "You start to cautiously make your way down the stairs\n")
+    time.sleep(1)
+    print("As you step off the stairs, he lunges towards you\n"
+          "He swings his knife but you manage to avoid the blow\n"
+          "Steadying yourself, you prepare to fight him")
+    while hits != 3 and health != 0:
+        action = input("You can either:\n"
+                       "Press 1 to attack with knife:\n"
+                       "Press 2 to tackle the man to the ground:\n")
+        if action == '1':
+            attack = random.randint(min, max)
+            print("Rolling to hit cultist")
+            time.sleep(1)
+            print(attack)
+            if attack >= 10:
+                print("Hits cultist")
+                hits += 1
+            elif attack == 20:
+                print("Critical hit!")
+                hits += 3
+            else:
+                print("Player misses and gets hit")
+                health -= 1
+        if action == '2':
+            push = random.randint(min, max)
+            print(push)
+            if push >= 15:
+                print("Cultist is tackled to the ground and subdued\n")
+                hits = 3
+            else:
+                print("Player fails and gets hit")
+                health -= 1
+        if hits == 3: 
+            print("Cultist defeated")
+            zombie_loot()
+        else:
+            player_died()
 
 
 if __name__ == "__main__":
