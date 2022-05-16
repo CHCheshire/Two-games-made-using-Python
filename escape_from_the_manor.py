@@ -25,4 +25,50 @@ def game():
           "Check in is quickly sorted, you don't bring in many bags\n"
           "as you don't plan to stay here for long.\n"
           "Finding your room on the second floor, sleep comes quickly\n"
-          "as you drift off to sound of heavy rain hitting the window") 
+          "as you drift off to sound of heavy rain hitting the window")
+
+    def zombie():
+        zombie_choice = input("Zombie attack door, choose to either\n"
+                              "1 to hide:\n2 to fight:\n3 to jump out window:")
+        if zombie_choice == '1':
+            clear()
+            print("Hide in closet")
+            time.sleep(2)
+            print("Door to room breaks in, zombie enters")
+            time.sleep(2)
+            print("Player is found and dies")
+            player_died()
+        elif zombie_choice == '2':
+            clear()
+            print("Player grabs pocketknife from bag and readies")
+            time.sleep(2)
+            print("Zombie breaks in and fight breaks out")
+            zombie_fight()
+        elif zombie_choice == '3':
+            clear()
+            print("Jump out second floor window")
+            time.sleep(2)
+            print("Breaks leg and passes out from pain")
+            player_died()
+        else:
+            clear()
+            print(f"{zombie_choice} is not valid. Choose a valid option.\n")
+            zombie()
+
+    def player_died():
+        print("Player has died")
+        restart = input("Would you like to try again Y/N?").upper
+        if restart == 'Y':
+            clear()
+            game()
+        elif restart == 'N':
+            clear()
+            print("Thank you for playing!")
+            subprocess.call(["python", "main_menu.py"])
+        else:
+            clear()
+            print(f"{restart} is an invalid option")
+            player_died()
+
+    def zombie_fight():
+        
