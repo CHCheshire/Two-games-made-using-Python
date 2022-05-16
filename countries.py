@@ -17,7 +17,7 @@ countries_list = [
     'japan',
     'china',
     'ukraine',
-    'russian',
+    'russia',
     'argentina',
     'brazil',
     'indonesia',

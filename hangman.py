@@ -53,7 +53,6 @@ def play(word):
     tries = 6
     print("Let's play a game of Hangman!")
     while not guessed and tries > 0:
-        print(f"!!!!!!!! {word} !!!!!!!!!")  # TODO
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
             clear()
