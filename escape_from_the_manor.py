@@ -26,7 +26,7 @@ def game():
           "as you don't plan to stay here for long.\n"
           "Finding your room on the second floor, sleep comes quickly\n"
           "as you drift off to sound of heavy rain hitting the window")
-    player_sleeps = input("Please press 1 to continue")
+    player_sleeps = input("Please press 1 to continue\n")
     if player_sleeps == '1':
         zombie()
     else:
@@ -134,34 +134,16 @@ def fight():
                 health -= 1
     if hits >= 3:
         clear()
-        print("The zombie ")
-        zombie_loot()
+        print("The zombie falls to the ground, lifeless.\n"
+              "You take a few moments to collect yourself\n"
+              "Unsure if that really just happened.")
+        time.sleep(1)
+        print("You hear more noises and screams down the hall\n"
+              "You take a deep breath and swallow your fear\n"
+              "and step into the corridor to start your escape.")
+        corridor()
     if health == 0:
         player_died()
-
-
-def zombie_loot():
-    lighter = 0
-    clear()
-    print("You stand over the corpse, it's now seemingly defeated\n"
-          "Do want you try to scrounge anything off the corpse\n"
-          "Or is there not enough time to do so?")
-    loot = input("Loot the corpse Y/N?\n").upper()
-    if loot == "Y":
-        print("You quickly rummage through their pockets\n"
-              "finding only a lighter which you take with you.\n"
-              "You step out into the hallway.")
-        lighter = 1
-        time.sleep(1)
-        corridor()
-    elif loot == "N":
-        print("You decide not to loot the corpse\n"
-              "And step out into the hallway.")
-        time.sleep(1)
-        corridor()
-    else:
-        print(f"{loot} is an invalid option")
-        zombie_loot()
 
 
 def corridor():
@@ -213,7 +195,7 @@ def foyer_battle():
             print("Rolling to hit cultist")
             time.sleep(1)
             print(attack)
-            if attack >= 10 and attack != 20:
+            if attack >= 1 and attack != 20:
                 print("You hit the cultist")
                 time.sleep(1)
                 hits += 1
@@ -254,7 +236,6 @@ def foyer_battle():
 
 
 def foyer():
-    return lighter
     clear()
     print("With the cultist defeated, you can now exit the manor\n"
           "but the zombies haven't stopped. Someone or\n"
@@ -279,14 +260,14 @@ def foyer():
               "You close the door behind, and turn to see\n"
               "what caused such a horribe night.")
         time.sleep(2)
-        study(lighter)
+        study()
     else:
         clear()
         print(f"{foyer_choice} is an invalid option")
         foyer()
 
 
-def study(lighter):
+def study():
     clear()
     print("The purple glow originates from a book on the desk\n"
           "of the study. It's bound in patchwork leather\n"
@@ -309,23 +290,62 @@ def study(lighter):
         print("You hear the sounds of the zombies cease as well.\n"
               "Relief washes over you as you realise the danger\n"
               "has now passed and you have survived.")
-        book()
+        ending_two()
     if study_choice == '2':
-        if lighter == '1':
-            print("You use the lighter and start to burn the book\n"
-                  "you watch the pages burst into the flames.")
-            time.sleep(1)
-            print("As the pages burn, from the smoke rising off the desk\n"
-                  "you see a grim face appear and stare at you. The visage\n"
-                  "disappears as quickly as it appeared, leaving you alone\n"
-                  "in the room, the pungent smell of burnt paper\n"
-                  "hangs in the air.")
-            time.sleep(1)
-            print("As the book burns, you hear the sounds of\n"
-                  "the zombies cease as well.\n"
-                  "Relief washes over you as you realise the danger\n"
-                  "has now passed and you have survived.")
-            ending_2()
+        print("You grab a lit candle from the desk and press\n"
+              "it to the pages of the book. The book lights\n"
+              "on fire quickly.")
+        time.sleep(1)
+        print("As smoke rises from the book, it quickly fills\n"
+              "the room. You soon hear pounding on the door\n"
+              "as the zombies try to stop you destroying the book.\n"
+              "You brace the door and try to stop them.")
+        time.sleep(1)
+        ending_three()
+    if study_choice == '3':
+        time.sleep(1)
+        print("You decide to not mess with the book\n"
+              "and instead decide to flee the study.")
+        time.sleep(1)
+        ending_one()
+
+
+def ending_one():
+    print("You flee the manor and jump into your car.\n"
+          "You quickly start your car and look up to see\n"
+          "zombies start spilling out of the manor, coming for you.\n"
+          "Without a second thought, you pull out of the car park\n"
+          "You drive as fast you can into the night, trying your\n"
+          "to forget about those you left behind...")
+    time.sleep(3)
+    congratulations()
+
+
+def ending_two():
+    print("You start to feel the door break and give way.\n"
+          "You brace as hard as you can against the door\n"
+          "but you're unable to stop all of the monsters by\n"
+          "yourself...")
+    time.sleep(3)
+    print("But then it all suddenly stops and goes quiet.\n"
+          "You turn to see the book reduced to cinders and the"
+          "the nightmare of tonight comes to a rest.")
+    time.sleep(1)
+    congratulations()
+
+
+def ending_three():
+    print("You look over at the book, it's dark\n"
+          "magic now at rest. You think about\n"
+          "the horrible things it did and how it almost\n"
+          "got you killed and maybe even turned into one of those\n"
+          "things...")
+    time.sleep(3)
+    print("You sit in the study, exhasuted from the\n"
+          "ordeals of tonight and drift off to sleep.\n"
+          "As you awake, you see the book sitting on the desk\n"
+          "and just can't shake the urge to read it...")
+    congratulations()
 
 
 if __name__ == "__main__":
