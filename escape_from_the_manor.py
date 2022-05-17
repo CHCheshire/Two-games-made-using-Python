@@ -47,7 +47,7 @@ def zombie():
     """
     time.sleep(2)
     print("You're awoken in the night by screams outside your room\n"
-          "And something trying to beat down the door your room.")
+          "And something trying to beat down the door to your room.\n")
     zombie_choice = input("As your door starts to cave in\n"
                           "You must make a choice, will you:\n"
                           "1 to hide:\n2 to fight:\n3 to jump out window:\n")
@@ -76,7 +76,7 @@ def zombie():
         time.sleep(2)
         print("You land awkwardly, breaking your leg as you hit the ground.\n"
               "You scream out in pain and try to crawl away.\n"
-              "The last thing you see is an man dressed in occult robes\n"
+              "The last thing you see is a man dressed in occult robes\n"
               "Brandishing a knife as he walks towards you...")
         time.sleep(2)
         player_died()

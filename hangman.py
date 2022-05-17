@@ -4,6 +4,7 @@ import subprocess
 from words.animals import animals_list
 from words.countries import countries_list
 from words.cities import cities_list
+import time
 
 
 def clear():
@@ -43,6 +44,7 @@ def choose_word_list():
     else:
         clear()
         print(f"{player_choice} is not valid. Please pick from the list.\n")
+        time.sleep(3)
         choose_word_list()
 
 
