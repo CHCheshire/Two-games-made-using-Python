@@ -118,6 +118,7 @@ def fight():
     while hits < 3 and health > 0:
         time.sleep(1)
         print("Zombie is attacking you")
+        print(f"You have {health} hitpoints")
         action = input("You can either:\n"
                        "Press 1 to attack with knife:\n"
                        "Press 2 to push zombie over:\n")
@@ -127,19 +128,19 @@ def fight():
             time.sleep(1)
             print(attack)
             if attack >= 8 and attack != 20:
-                clear()
                 print("You hit the zombie")
                 time.sleep(1)
+                clear()
                 hits += 1
             elif attack == 20:
-                clear()
                 print("Critical hit!")
                 time.sleep(1)
+                clear()
                 hits += 3
             else:
-                clear()
                 print("You miss your attack and get hit back")
                 time.sleep(1)
+                clear()
                 health -= 1
         if action == '2':
             push = random.randint(min_roll, max_roll)
@@ -147,17 +148,18 @@ def fight():
             time.sleep(1)
             print(push)
             if push >= 15:
-                clear()
                 print("The zombie falls over, you easily plunge\n"
                       "the knife into its head.")
                 time.sleep(1)
+                clear()
                 hits += 3
             else:
-                clear()
                 print("Player fails and gets hit\n")
+                time.sleep(1)
+                clear()
                 health -= 1
     if hits >= 3:
-        print("The zombie lays the ground, lifeless.\n"
+        print("The zombie lays on the ground, lifeless.\n"
               "You take a few moments to collect yourself\n"
               "Unsure if that really just happened.")
         time.sleep(1)
@@ -217,9 +219,10 @@ def foyer_battle():
     print("As you step off the stairs, he lunges towards you\n"
           "He swings his knife but you manage to avoid the blow\n"
           "Steadying yourself, you prepare to fight him\n")
-    while hits < 3 and health != 0:
+    while hits < 3 and health > 0:
         time.sleep(1)
         print("The cultist stands in your way")
+        print(f"You have {health} hitpoints")
         action = input("You can either:\n"
                        "Press 1 to attack with knife:\n"
                        "Press 2 to tackle him to the ground:\n")
@@ -228,17 +231,20 @@ def foyer_battle():
             print("Rolling to hit cultist")
             time.sleep(1)
             print(attack)
-            if attack >= 1 and attack != 20:
+            if attack >= 10 and attack != 20:
                 print("You hit the cultist")
                 time.sleep(1)
+                clear()
                 hits += 1
             elif attack == 20:
                 print("Critical hit!")
                 time.sleep(1)
+                clear()
                 hits += 3
             else:
                 print("You miss and get hit")
                 time.sleep(1)
+                clear()
                 health -= 1
         if action == '2':
             push = random.randint(min_roll, max_roll)
@@ -256,9 +262,11 @@ def foyer_battle():
                       "as pain flares up your side.")
                 health -= 2
                 time.sleep(1)
+                clear()
             else:
                 print("You fail and gets hit")
                 time.sleep(1)
+                clear()
                 health -= 1
         if hits >= 3:
             input("Press enter to continue")
