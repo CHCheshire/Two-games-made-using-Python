@@ -47,10 +47,12 @@ def zombie():
     """
     time.sleep(2)
     print("You're awoken in the night by screams outside your room\n"
-          "And something trying to beat down the door to your room.\n")
+          "And something is trying to beat down the door to your room.\n")
     zombie_choice = input("As your door starts to cave in\n"
                           "You must make a choice, will you:\n"
-                          "1 to hide:\n2 to fight:\n3 to jump out window:\n")
+                          "Press 1 to hide:\n"
+                          "Press 2 to fight:\n"
+                          "Press 3 to jump out of the window:\n")
     if zombie_choice == '1':
         clear()
         print("You hide in the closet, hoping to stay hidden")
@@ -305,7 +307,7 @@ def foyer():
         time.sleep(2)
         clear()
         print("You run through the dining hall and enter the study.\n"
-              "You close the door behind, and turn to see\n"
+              "You close the door behind you, and turn to see\n"
               "what caused such a horribe night.\n")
         input("Press enter to continue")
         time.sleep(2)
@@ -322,12 +324,12 @@ def study():
     the book that's causing the dead to animate
     """
     print("The purple glow originates from a book on the desk\n"
-          "of the study. It's bound in patchwork leather\n"
-          "and it's pages are splattered with blood.\n")
+          "of the study. Its bound in patchwork leather\n"
+          "and its pages are splattered with blood.\n")
     time.sleep(2)
     print("The purple energy is flowing out of the book\n"
           "You consider maybe trying to close or maybe burn the book\n"
-          "But you also still have the chane to leave through\n"
+          "But you also still have the chance to leave through\n"
           "Another door out of the study to the car park.\n")
     time.sleep(2)
     study_choice = input("Will you either:\n"
@@ -338,7 +340,7 @@ def study():
         clear()
         time.sleep(3)
         print("You rush over to the desk and slam the book shut\n"
-              "The purple energy coming from it cease you do so.\n")
+              "The purple energy coming from it ceases as you do so.\n")
         time.sleep(3)
         print("You hear the sounds of the zombies cease as well.\n"
               "Relief washes over you as you realise the danger\n"

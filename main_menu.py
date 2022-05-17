@@ -19,8 +19,8 @@ def main():
     clear()
     print("Welcome to my website for games I have made in Python\n"
           "I have made a game for hangman and a text adventure game\n"
-          "I hope you enjoy the games please check feel free\n"
-          "To check out my other work and Github.")
+          "I hope you enjoy the games please feel free\n"
+          "To check out my other work and my Github.\n")
     option = input("Please choose from the list below for what to play\n"
                    "Press 1 for Hangman\n"
                    "Press 2 for Escape from the manor\n"
