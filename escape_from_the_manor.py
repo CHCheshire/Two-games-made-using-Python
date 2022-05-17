@@ -197,6 +197,7 @@ def corridor():
         print("You grimace and flee, running down the stairs\n"
               "and try to exit through the foyer")
         time.sleep(1)
+        input("Press enter to continue")
         foyer_battle()
     else:
         clear()
@@ -221,6 +222,7 @@ def foyer_battle():
     print("As you step off the stairs, he lunges towards you\n"
           "He swings his knife but you manage to avoid the blow\n"
           "Steadying yourself, you prepare to fight him\n")
+    input("Press enter to continue")
     while hits < 3 and health > 0:
         time.sleep(1)
         print("The cultist stands in your way")
