@@ -252,14 +252,80 @@ def foyer_battle():
         if health == 0:
             player_died()
 
+
 def foyer():
+    return lighter
     clear()
     print("With the cultist defeated, you can now exit the manor\n"
           "but the zombies haven't stopped. Someone or\n"
           "something else seems to be causing this. You hear screams\n"
           "from upstairs as people are still being attacked")
+    time.sleep(2)
+    print("You glance to your left and, through the dining hall,\n"
+          "see a door ajar to a study room with a purple glow\n"
+          "shining through the cracks in the door.")
     time.sleep(1)
-    print
+    foyer_choice = input("Will you either:\n"
+                         "Press 1 to exit the manor now\n"
+                         "Press 2 to investigate the study\n")
+    if foyer_choice == '1':
+        time.sleep(1)
+        print("You run out the foyer leaving the manor\n"
+              "and the screams and the horror behind you.")
+        ending_one()
+    elif foyer_choice == '2':
+        time.sleep(1)
+        print("You run through the dining hall and enter the study.\n"
+              "You close the door behind, and turn to see\n"
+              "what caused such a horribe night.")
+        time.sleep(2)
+        study(lighter)
+    else:
+        clear()
+        print(f"{foyer_choice} is an invalid option")
+        foyer()
+
+
+def study(lighter):
+    clear()
+    print("The purple glow originates from a book on the desk\n"
+          "of the study. It's bound in patchwork leather\n"
+          "and it's pages are splattered with blood.")
+    time.sleep(1)
+    print("The purple energy is flowing out of the book\n"
+          "You consider maybe trying to close or maybe burn the book\n"
+          "But you also still have the chane to leave through\n"
+          "Another door out of the study to the car park.")
+    time.sleep(1)
+    study_choice = input("Will you either:"
+                         "Press 1 to try to close the book:\n"
+                         "Press 2 to try and burn the book:\n"
+                         "Press 3 to exit the study:\n")
+    if study_choice == '1':
+        time.sleep(1)
+        print("You rush over to the desk and slam the book shut\n"
+              "The purple energy coming from it cease you do so.")
+        time.sleep(1)
+        print("You hear the sounds of the zombies cease as well.\n"
+              "Relief washes over you as you realise the danger\n"
+              "has now passed and you have survived.")
+        book()
+    if study_choice == '2':
+        if lighter == '1':
+            print("You use the lighter and start to burn the book\n"
+                  "you watch the pages burst into the flames.")
+            time.sleep(1)
+            print("As the pages burn, from the smoke rising off the desk\n"
+                  "you see a grim face appear and stare at you. The visage\n"
+                  "disappears as quickly as it appeared, leaving you alone\n"
+                  "in the room, the pungent smell of burnt paper\n"
+                  "hangs in the air.")
+            time.sleep(1)
+            print("As the book burns, you hear the sounds of\n"
+                  "the zombies cease as well.\n"
+                  "Relief washes over you as you realise the danger\n"
+                  "has now passed and you have survived.")
+            ending_2()
 
 
 if __name__ == "__main__":
