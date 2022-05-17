@@ -18,21 +18,23 @@ def game():
           "the headlights on your car and cracks of lightning.\n"
           "You find yourself getting tired, you need to stop soon to rest.\n"
           "After several more miles, you see a road leading off to a hotel\n"
-          "seeing nowhere else to stay, you decide to rest here for tonight.")
+          "seeing nowhere else to stay, you decide to rest for tonight.\n")
     time.sleep(2)
     print("Seeing other cars parked up, you'd guess around 10 other people\n"
           "are staying here tonight as well, to wait out the storm.\n"
           "Check in is quickly sorted, you don't bring in many bags\n"
           "as you don't plan to stay here for long.\n"
           "Finding your room on the second floor, sleep comes quickly\n"
-          "as you drift off to sound of heavy rain hitting the window")
-    player_sleeps = input("Please press 1 to continue\n")
-    if player_sleeps == '1':
-        zombie()
-    else:
-        clear()
-        print(f"{player_sleeps} is an invalid option\n")
-        game()
+          "as you drift off to sound of heavy rain hitting the window.\n")
+    input("Please press enter to continue\n")
+    clear()
+    zombie()
+    # if player_sleeps == '1':
+    #     zombie()
+    # else:
+    #     clear()
+    #     print(f"{player_sleeps} is an invalid option\n")
+    #     game()
 
 
 def zombie():
@@ -96,8 +98,8 @@ def player_died():
 def fight():
     health = 5
     hits = 0
-    min = 1
-    max = 20
+    min_roll = 1
+    max_roll = 20
     while hits < 3 and health > 0:
         time.sleep(1)
         print("Zombie is attacking you")
@@ -105,7 +107,7 @@ def fight():
                        "Press 1 to attack with knife:\n"
                        "Press 2 to push zombie over:\n")
         if action == '1':
-            attack = random.randint(min, max)
+            attack = random.randint(min_roll, max_roll)
             print("Rolling to attack zombie")
             time.sleep(1)
             print(attack)
@@ -125,8 +127,9 @@ def fight():
                 time.sleep(1)
                 health -= 1
         if action == '2':
-            push = random.randint(min, max)
+            push = random.randint(min_roll, max_roll)
             print("Rolling to push zombie")
+            time.sleep(1)
             print(push)
             if push >= 15:
                 clear()
@@ -136,7 +139,7 @@ def fight():
                 hits += 3
             else:
                 clear()
-                print("Player fails and gets hit")
+                print("Player fails and gets hit\n")
                 health -= 1
     if hits >= 3:
         print("The zombie lays the ground, lifeless.\n"
@@ -146,6 +149,8 @@ def fight():
         print("You hear more noises and screams down the hall\n"
               "You take a deep breath and swallow your fear\n"
               "and step into the corridor to start your escape.")
+        input("Press enter to continue")
+        clear()
         corridor()
     if health == 0:
         player_died()
@@ -179,16 +184,16 @@ def corridor():
 def foyer_battle():
     health = 5
     hits = 0
-    min = 1
-    max = 20
+    min_roll = 1
+    max_roll = 20
     print("As you round the corner to the stairs leading down to the foyer\n"
           "A crazed old man stands in the foyer, babbling nonsense\n"
           "He wields a knife and dressed in what look to be occult robes\n"
-          "You start to cautiously make your way down the stairs")
+          "You start to cautiously make your way down the stairs\n")
     time.sleep(1)
     print("As you step off the stairs, he lunges towards you\n"
           "He swings his knife but you manage to avoid the blow\n"
-          "Steadying yourself, you prepare to fight him")
+          "Steadying yourself, you prepare to fight him\n")
     while hits < 3 and health != 0:
         time.sleep(1)
         print("The cultist stands in your way")
@@ -196,7 +201,7 @@ def foyer_battle():
                        "Press 1 to attack with knife:\n"
                        "Press 2 to tackle him to the ground:\n")
         if action == '1':
-            attack = random.randint(min, max)
+            attack = random.randint(min_roll, max_roll)
             print("Rolling to hit cultist")
             time.sleep(1)
             print(attack)
@@ -213,7 +218,7 @@ def foyer_battle():
                 time.sleep(1)
                 health -= 1
         if action == '2':
-            push = random.randint(min, max)
+            push = random.randint(min_roll, max_roll)
             print(push)
             if push >= 15:
                 print("Rolling to tackle cultist")
@@ -233,6 +238,7 @@ def foyer_battle():
                 time.sleep(1)
                 health -= 1
         if hits >= 3:
+            input("Press enter to continue")
             clear()
             print("The cultist falls to the ground dead.")
             time.sleep(1)
@@ -245,11 +251,11 @@ def foyer():
     print("With the cultist defeated, you can now exit the manor\n"
           "but the zombies haven't stopped. Someone or\n"
           "something else seems to be causing this. You hear screams\n"
-          "from upstairs as people are still being attacked")
+          "from upstairs as people are still being attacked\n")
     time.sleep(2)
     print("You glance to your left and, through the dining hall,\n"
           "see a door ajar to a study room with a purple glow\n"
-          "shining through the crack in the door.")
+          "shining through the crack in the door.\n")
     time.sleep(2)
     foyer_choice = input("Will you either:\n"
                          "Press 1 to exit the manor now\n"
@@ -257,14 +263,16 @@ def foyer():
     if foyer_choice == '1':
         time.sleep(1)
         print("You run out the foyer leaving the manor\n"
-              "and the screams and the horror behind you.")
+              "and the screams and the horror behind you.\n")
+        input("Press enter to continue")
         ending_one()
     elif foyer_choice == '2':
         time.sleep(2)
         clear()
         print("You run through the dining hall and enter the study.\n"
               "You close the door behind, and turn to see\n"
-              "what caused such a horribe night.")
+              "what caused such a horribe night.\n")
+        input("Press enter to continue")
         time.sleep(2)
         study()
     else:
@@ -276,12 +284,12 @@ def foyer():
 def study():
     print("The purple glow originates from a book on the desk\n"
           "of the study. It's bound in patchwork leather\n"
-          "and it's pages are splattered with blood.")
+          "and it's pages are splattered with blood.\n")
     time.sleep(2)
     print("The purple energy is flowing out of the book\n"
           "You consider maybe trying to close or maybe burn the book\n"
           "But you also still have the chane to leave through\n"
-          "Another door out of the study to the car park.")
+          "Another door out of the study to the car park.\n")
     time.sleep(2)
     study_choice = input("Will you either:\n"
                          "Press 1 to try to close the book:\n"
@@ -291,29 +299,32 @@ def study():
         clear()
         time.sleep(3)
         print("You rush over to the desk and slam the book shut\n"
-              "The purple energy coming from it cease you do so.")
+              "The purple energy coming from it cease you do so.\n")
         time.sleep(3)
         print("You hear the sounds of the zombies cease as well.\n"
               "Relief washes over you as you realise the danger\n"
-              "has now passed and you have survived.")
+              "has now passed and you have survived.\n")
+        input("Press enter to continue")
         ending_three()
     if study_choice == '2':
         clear()
         print("You grab a lit candle from the desk and press\n"
               "it to the pages of the book. The book lights\n"
-              "on fire quickly.")
+              "on fire quickly.\n")
         time.sleep(3)
         print("As smoke rises from the book, it quickly fills\n"
               "the room. You soon hear pounding on the door\n"
               "as the zombies try to stop you destroying the book.\n"
-              "You brace the door and try to stop them.")
+              "You brace the door and try to stop them.\n")
         time.sleep(3)
+        input("Press enter to continue")
         ending_two()
     if study_choice == '3':
         time.sleep(3)
         clear()
         print("You decide to not mess with the book\n"
-              "and instead decide to flee the study.")
+              "and instead decide to flee the study.\n")
+        input("Press enter to continue")
         time.sleep(3)
         ending_one()
 
@@ -325,7 +336,9 @@ def ending_one():
           "Without a second thought, you pull out of the car park\n"
           "You drive as fast you can into the night, trying your\n"
           "best to forget about those you left behind...")
+    input("Press enter to continue")
     time.sleep(3)
+    clear()
     congratulations()
 
 
@@ -333,12 +346,14 @@ def ending_two():
     print("You start to feel the door break and give way.\n"
           "You brace as hard as you can against the door\n"
           "but you're unable to stop all of the monsters by\n"
-          "yourself...")
+          "yourself...\n")
     time.sleep(3)
     print("But then it all suddenly stops and goes quiet.\n"
           "You turn to see the book reduced to cinders and\n"
-          "the nightmare of tonight comes to a rest.")
+          "the nightmare of tonight comes to a rest.\n")
+    input("Press enter to continue")
     time.sleep(3)
+    clear()
     congratulations()
 
 
@@ -347,13 +362,15 @@ def ending_three():
           "magic now at rest. You think about\n"
           "the horrible things it did and how it almost\n"
           "got you killed and maybe even turned into one of those\n"
-          "things...")
+          "things...\n")
     time.sleep(3)
     print("You sit in the study, exhasuted from the\n"
           "ordeals of tonight and drift off to sleep.\n"
           "As you awake, you see the book sitting on the desk\n"
-          "and just can't shake the urge to read it...")
+          "and just can't shake the urge to read it...\n")
+    input("Press enter to continue")
     time.sleep(3)
+    clear()
     congratulations()
 
 
