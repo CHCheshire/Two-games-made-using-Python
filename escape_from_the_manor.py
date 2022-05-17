@@ -11,7 +11,10 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def game():
+def intro():
+    """
+    This is the introduction for the game
+    """
     clear()
     print("You are driving out of town on a stormy night, it's getting late.\n"
           "You're driving down country roads, the darkness is illuminated by\n"
@@ -38,6 +41,10 @@ def game():
 
 
 def zombie():
+    """
+    This is the function for when the player gets
+    attacked in their room
+    """
     time.sleep(2)
     print("You're awoken in the night by screams outside your room\n"
           "And something trying to beat down the door your room.")
@@ -80,11 +87,15 @@ def zombie():
 
 
 def player_died():
+    """
+    This is for if the player character
+    dies in adventure and allows them to restart
+    """
     print("You have died")
     restart = input("Would you like to try again Y/N?").upper()
     if restart == "Y":
         clear()
-        game()
+        intro()
     elif restart == "N":
         clear()
         print("Thank you for playing!")
@@ -96,6 +107,10 @@ def player_died():
 
 
 def fight():
+    """
+    This is a dice rolling function to simulate
+    a fight between the player and a zombie
+    """
     health = 5
     hits = 0
     min_roll = 1
@@ -157,6 +172,10 @@ def fight():
 
 
 def corridor():
+    """
+    This function is for when they leave the room and
+    enter the corridor to start escaping the manor
+    """
     print("You exit your room and step out on to the corridor\n"
           "You see more zombie like creatures attacking people\n"
           "Down the hall on your left\n"
@@ -182,6 +201,10 @@ def corridor():
 
 
 def foyer_battle():
+    """
+    This is for when the player makes it to the foyer and
+    needs to fight the cultist
+    """
     health = 5
     hits = 0
     min_roll = 1
@@ -248,6 +271,10 @@ def foyer_battle():
 
 
 def foyer():
+    """
+    This is for when the player defeats the cultist and can
+    either escape or investigate further
+    """
     print("With the cultist defeated, you can now exit the manor\n"
           "but the zombies haven't stopped. Someone or\n"
           "something else seems to be causing this. You hear screams\n"
@@ -282,6 +309,10 @@ def foyer():
 
 
 def study():
+    """
+    This function is the player investigating futher and finding
+    the book that's causing the dead to animate
+    """
     print("The purple glow originates from a book on the desk\n"
           "of the study. It's bound in patchwork leather\n"
           "and it's pages are splattered with blood.\n")
@@ -330,6 +361,9 @@ def study():
 
 
 def ending_one():
+    """
+    This is the first ending to the game
+    """
     print("You flee the manor and jump into your car.\n"
           "You quickly start your car and look up to see\n"
           "zombies start spilling out of the manor, coming for you.\n"
@@ -343,6 +377,9 @@ def ending_one():
 
 
 def ending_two():
+    """
+    This is the second ending to the game
+    """
     print("You start to feel the door break and give way.\n"
           "You brace as hard as you can against the door\n"
           "but you're unable to stop all of the monsters by\n"
@@ -358,6 +395,9 @@ def ending_two():
 
 
 def ending_three():
+    """
+    This is the third ending to the game
+    """
     print("You look over at the book, it's dark\n"
           "magic now at rest. You think about\n"
           "the horrible things it did and how it almost\n"
@@ -375,6 +415,11 @@ def ending_three():
 
 
 def congratulations():
+    """
+    This will congratulate the player for surviving the night
+    and finishing the game. Will also allow them to play again
+    or return to the main menu.
+    """
     print("Thank you for playing Escape from the Manor!\n"
           "Please feel free to play again if you'd like to\n"
           "try for another ending or play a different game.\n")
@@ -383,7 +428,7 @@ def congratulations():
                               "Press 2 to go back to the main menu:\n")
     if play_again_choice == '1':
         clear()
-        game()
+        intro()
     elif play_again_choice == '2':
         clear()
         print("Thank you for playing!")
@@ -395,4 +440,4 @@ def congratulations():
 
 
 if __name__ == "__main__":
-    game()
+    intro()

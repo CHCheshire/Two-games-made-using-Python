@@ -1,5 +1,6 @@
-import subprocess
 import os
+import time
+import subprocess
 
 
 def clear():
@@ -10,13 +11,20 @@ def clear():
 
 
 def main():
+    """
+    This function is for a menu
+    This will allow the user to navigate
+    Between the two games and exitting the program as well.
+    """
     clear()
     print("Welcome to my website for games I have made in Python\n"
           "I have made a game for hangman and a text adventure game\n"
           "I hope you enjoy the games please check feel free\n"
           "To check out my other work and Github.")
     option = input("Please choose from the list below for what to play\n"
-                   "1 from Hangman\n2 for Escape from the manor\n3 to Exit\n")
+                   "Press 1 for Hangman\n"
+                   "Press 2 for Escape from the manor\n"
+                   "Press 3 to Exit\n")
     if option == '1':
         subprocess.call(["python", "hangman.py"])
     elif option == '2':
@@ -26,6 +34,7 @@ def main():
         quit()
     else:
         print(f"{option} is not valid. Please pick from the list.\n")
+        time.sleep(3)
         main()
 
 

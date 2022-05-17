@@ -1,9 +1,9 @@
 import os
 import random
 import subprocess
-from animals import animals_list
-from countries import countries_list
-from cities import cities_list
+from words.animals import animals_list
+from words.countries import countries_list
+from words.cities import cities_list
 
 
 def clear():
@@ -14,6 +14,9 @@ def clear():
 
 
 def choose_word_list():
+    """
+    This will let the user decide which list they want to play with
+    """
     clear()
     player_choice = input(
         "Please choose from one of the following options\n"
@@ -44,6 +47,9 @@ def choose_word_list():
 
 
 def play(word):
+    """
+    This is the function for playing the hangman game itself
+    """
     word = word.upper()
     clear()
     word_complete = "_" * len(word)
@@ -95,6 +101,10 @@ def play(word):
 
 
 def display_hangman(tries):
+    """
+    This will give a display for the progression of hangman
+    as the user gets incorrect answers
+    """
     stages = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
@@ -170,12 +180,17 @@ def display_hangman(tries):
 
 
 def play_again():
+    """
+    This function will allow the user to either play again or
+    go back to the main menu
+    """
     restart = input("Play Again (Y/N) ").upper()
     if restart == "Y":
         choose_word_list()
     elif restart == "N":
         clear()
         print("Thank you for playing Hangman")
+        subprocess.call(["python", "main_menu.py"])
     else:
         clear()
         print(f"{restart} is an invalid option")
