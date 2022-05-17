@@ -193,11 +193,11 @@ def corridor():
         time.sleep(1)
         player_died()
     elif corridor_choice == '2':
-        clear()
         print("You grimace and flee, running down the stairs\n"
               "and try to exit through the foyer")
         time.sleep(1)
         input("Press enter to continue")
+        clear()
         foyer_battle()
     else:
         clear()
@@ -225,6 +225,7 @@ def foyer_battle():
     input("Press enter to continue")
     while hits < 3 and health > 0:
         time.sleep(1)
+        clear()
         print("The cultist stands in your way")
         print(f"You have {health} hitpoints")
         action = input("You can either:\n"
@@ -273,10 +274,10 @@ def foyer_battle():
                 clear()
                 health -= 1
         if hits >= 3:
-            input("Press enter to continue")
-            clear()
             print("The cultist falls to the ground dead.")
             time.sleep(1)
+            input("Press enter to continue")
+            clear()
             foyer()
         if health == 0:
             player_died()
