@@ -22,7 +22,7 @@ def choose_word_list():
     if player_choice == '1':
         print("You've chosen the animals list")
         word = random.choice(animals_list)
-        # return word.upper() 
+        # return word.upper()
         play(word)
     elif player_choice == '2':
         print("You've chosen the cities list")

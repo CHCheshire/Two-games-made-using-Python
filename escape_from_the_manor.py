@@ -56,8 +56,9 @@ def zombie():
         clear()
         print("You grab a pocket knife out of your bag and get ready.")
         time.sleep(2)
-        print("Door caves in a zombie like creature bursts into the room\n"
-              "And tries to attack you")
+        print("The door to your room caves in as a\n"
+              "zombie like creature bursts in\n"
+              "and tries to attack you")
         fight()
     elif zombie_choice == '3':
         clear()
@@ -93,7 +94,6 @@ def player_died():
 
 
 def fight():
-    print("")
     health = 5
     hits = 0
     min = 1
@@ -106,35 +106,40 @@ def fight():
                        "Press 2 to push zombie over:\n")
         if action == '1':
             attack = random.randint(min, max)
-            print("Rolling to hit zombie")
+            print("Rolling to attack zombie")
             time.sleep(1)
             print(attack)
             if attack >= 8 and attack != 20:
+                clear()
                 print("You hit the zombie")
                 time.sleep(1)
                 hits += 1
             elif attack == 20:
+                clear()
                 print("Critical hit!")
                 time.sleep(1)
                 hits += 3
             else:
+                clear()
                 print("You miss your attack and get hit back")
                 time.sleep(1)
                 health -= 1
         if action == '2':
             push = random.randint(min, max)
+            print("Rolling to push zombie")
             print(push)
             if push >= 15:
+                clear()
                 print("The zombie falls over, you easily plunge\n"
                       "the knife into its head.")
                 time.sleep(1)
                 hits += 3
             else:
+                clear()
                 print("Player fails and gets hit")
                 health -= 1
     if hits >= 3:
-        clear()
-        print("The zombie falls to the ground, lifeless.\n"
+        print("The zombie lays the ground, lifeless.\n"
               "You take a few moments to collect yourself\n"
               "Unsure if that really just happened.")
         time.sleep(1)
@@ -160,6 +165,7 @@ def corridor():
         time.sleep(1)
         player_died()
     elif corridor_choice == '2':
+        clear()
         print("You grimace and flee, running down the stairs\n"
               "and try to exit through the foyer")
         time.sleep(1)
@@ -171,7 +177,6 @@ def corridor():
 
 
 def foyer_battle():
-    clear()
     health = 5
     hits = 0
     min = 1
@@ -184,7 +189,7 @@ def foyer_battle():
     print("As you step off the stairs, he lunges towards you\n"
           "He swings his knife but you manage to avoid the blow\n"
           "Steadying yourself, you prepare to fight him")
-    while hits <= 3 and health != 0:
+    while hits < 3 and health != 0:
         time.sleep(1)
         print("The cultist stands in your way")
         action = input("You can either:\n"
@@ -227,7 +232,8 @@ def foyer_battle():
                 print("You fail and gets hit")
                 time.sleep(1)
                 health -= 1
-        if hits >= 3: 
+        if hits >= 3:
+            clear()
             print("The cultist falls to the ground dead.")
             time.sleep(1)
             foyer()
@@ -236,7 +242,6 @@ def foyer_battle():
 
 
 def foyer():
-    clear()
     print("With the cultist defeated, you can now exit the manor\n"
           "but the zombies haven't stopped. Someone or\n"
           "something else seems to be causing this. You hear screams\n"
@@ -244,8 +249,8 @@ def foyer():
     time.sleep(2)
     print("You glance to your left and, through the dining hall,\n"
           "see a door ajar to a study room with a purple glow\n"
-          "shining through the cracks in the door.")
-    time.sleep(1)
+          "shining through the crack in the door.")
+    time.sleep(2)
     foyer_choice = input("Will you either:\n"
                          "Press 1 to exit the manor now\n"
                          "Press 2 to investigate the study\n")
@@ -255,7 +260,8 @@ def foyer():
               "and the screams and the horror behind you.")
         ending_one()
     elif foyer_choice == '2':
-        time.sleep(1)
+        time.sleep(2)
+        clear()
         print("You run through the dining hall and enter the study.\n"
               "You close the door behind, and turn to see\n"
               "what caused such a horribe night.")
@@ -268,45 +274,47 @@ def foyer():
 
 
 def study():
-    clear()
     print("The purple glow originates from a book on the desk\n"
           "of the study. It's bound in patchwork leather\n"
           "and it's pages are splattered with blood.")
-    time.sleep(1)
+    time.sleep(2)
     print("The purple energy is flowing out of the book\n"
           "You consider maybe trying to close or maybe burn the book\n"
           "But you also still have the chane to leave through\n"
           "Another door out of the study to the car park.")
-    time.sleep(1)
-    study_choice = input("Will you either:"
+    time.sleep(2)
+    study_choice = input("Will you either:\n"
                          "Press 1 to try to close the book:\n"
                          "Press 2 to try and burn the book:\n"
                          "Press 3 to exit the study:\n")
     if study_choice == '1':
-        time.sleep(1)
+        clear()
+        time.sleep(3)
         print("You rush over to the desk and slam the book shut\n"
               "The purple energy coming from it cease you do so.")
-        time.sleep(1)
+        time.sleep(3)
         print("You hear the sounds of the zombies cease as well.\n"
               "Relief washes over you as you realise the danger\n"
               "has now passed and you have survived.")
-        ending_two()
+        ending_three()
     if study_choice == '2':
+        clear()
         print("You grab a lit candle from the desk and press\n"
               "it to the pages of the book. The book lights\n"
               "on fire quickly.")
-        time.sleep(1)
+        time.sleep(3)
         print("As smoke rises from the book, it quickly fills\n"
               "the room. You soon hear pounding on the door\n"
               "as the zombies try to stop you destroying the book.\n"
               "You brace the door and try to stop them.")
-        time.sleep(1)
-        ending_three()
+        time.sleep(3)
+        ending_two()
     if study_choice == '3':
-        time.sleep(1)
+        time.sleep(3)
+        clear()
         print("You decide to not mess with the book\n"
               "and instead decide to flee the study.")
-        time.sleep(1)
+        time.sleep(3)
         ending_one()
 
 
@@ -316,7 +324,7 @@ def ending_one():
           "zombies start spilling out of the manor, coming for you.\n"
           "Without a second thought, you pull out of the car park\n"
           "You drive as fast you can into the night, trying your\n"
-          "to forget about those you left behind...")
+          "best to forget about those you left behind...")
     time.sleep(3)
     congratulations()
 
@@ -328,9 +336,9 @@ def ending_two():
           "yourself...")
     time.sleep(3)
     print("But then it all suddenly stops and goes quiet.\n"
-          "You turn to see the book reduced to cinders and the"
+          "You turn to see the book reduced to cinders and\n"
           "the nightmare of tonight comes to a rest.")
-    time.sleep(1)
+    time.sleep(3)
     congratulations()
 
 
@@ -345,7 +353,28 @@ def ending_three():
           "ordeals of tonight and drift off to sleep.\n"
           "As you awake, you see the book sitting on the desk\n"
           "and just can't shake the urge to read it...")
+    time.sleep(3)
     congratulations()
+
+
+def congratulations():
+    print("Thank you for playing Escape from the Manor!\n"
+          "Please feel free to play again if you'd like to\n"
+          "try for another ending or play a different game.\n")
+    play_again_choice = input("Please choose from below:\n"
+                              "Press 1 to play again:\n"
+                              "Press 2 to go back to the main menu:\n")
+    if play_again_choice == '1':
+        clear()
+        game()
+    elif play_again_choice == '2':
+        clear()
+        print("Thank you for playing!")
+        subprocess.call(["python", "main_menu.py"])
+    else:
+        clear()
+        print(f"{play_again_choice} is an invalid option")
+        congratulations()
 
 
 if __name__ == "__main__":
