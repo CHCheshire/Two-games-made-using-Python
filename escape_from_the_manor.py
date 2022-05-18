@@ -32,12 +32,6 @@ def intro():
     input("Please press enter to continue\n")
     clear()
     zombie()
-    # if player_sleeps == '1':
-    #     zombie()
-    # else:
-    #     clear()
-    #     print(f"{player_sleeps} is an invalid option\n")
-    #     game()
 
 
 def zombie():

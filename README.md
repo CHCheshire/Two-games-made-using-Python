@@ -100,6 +100,18 @@ As menitoned previously, I had had some issues with the timings for going from s
 
 ![Escape continue](documentation/escape-continue.png)
 
+### Validator Testing
+* PEP8
+    * No errors were returned from PEP8online.com
+
+
+![Main menu validation](documentation/main-menu-check.png)
+
+![Hangman validation](documentation/hangman-check.png)
+
+![Escape from the manor validation](/documentation/escape-check.png)
+
+
 ## Data Model
 
 As I have two different games, I have used different data models for each one in order to hold their respective data. 
@@ -115,28 +127,57 @@ Any bugs that occured in the code I have spoken about in the testing section and
 ### Remaining Bugs
 * No bugs remaining
 
-### Validator Testing
-* PEP8
-    * No errors were returned from PEP8online.com
-![Main menu validation](documentation/main-menu-check.png)
-
-![Hangman validation](documentation/hangman-check.png)
-
-![Escape from the manor validation](/documentation/escape-check.png)
 
 ## Deployment
-To deploy this project, I had done the following:
-1. Used the console to log on to Heroku using the command: 'Heroku login -i'.
-2. In the console I had to choose the correct Heroku app using the following command: 'Heroku apps'.
-3. I used the following command to select that app so that I could commit to it: Heroku git: 'remote -a two-games-made-for-python'.
-4. This is where I put the commit message to both git and heruko:'git add. && git commit -m "input message here"'.
-5. To push to both Git and Heroku I used the following commands: 'git push origin main', 'git push Heroku main'.
+
+Code Institute has provided a [template](https://github.com/Code-Institute-Org/python-essentials-template) to display the terminal view of this backend application in a modern web browser. This is to improve the accessibilty of the project to others.
+
+The live deployed application can be found at [Two Games Made For Python](https://two-games-made-for-python.herokuapp.com/).
+
+### Local Deployment
+
+*Gitpod* IDE was used to write the code for this project.
+
+To make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
+- `git clone https://github.com/CHCheshire/Two-games-made-using-Python.git`
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/CHCheshire/Two-games-made-using-Python)
+
+### Heroku Deployment
+
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Deployment steps are as follows, after account setup:
+
+- Select *New* in the top-right corner of your Heroku Dashboard, and select *Create new app* from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select *Create App*.
+- From the new app *Settings*, click *Reveal Config Vars*, and set the value of KEY to `PORT`, and the value to `8000` then select *add*.
+- Further down, to support dependencies, select *Add Buildpack*.
+- The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them)
+
+Heroku needs two additional files in order to deploy properly.
+- requirements.txt
+- Procfile
+
+You can install this project's requirements (where applicable) using: `pip3 install -r requirements.txt`. If you have your own packages that have been installed, then the requirements file needs updated using: `pip3 freeze --local > requirements.txt`
+
+The Procfile can be created with the following command: `echo web: node index.js > Procfile`
+
+For Heroku deployment, due to recent security issues, users can no longer deploy via the Heroku Dashboard. Follow these steps to connect your GitHub repository to the newly created app:
+
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a <app_name>` (replace app_name with your app, without the angle-brackets)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type: `git push heroku main`
+
+The frontend terminal should now be connected and deployed to Heroku.
 
 ## Credits
 
-The logic for the play function and the display_tries function were taken from a video by Kite (https://www.youtube.com/watch?v=m4nEnsavl6w)
+The logic for the play function and the display_tries function were taken from a video by [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w)
 
-I had used this article by Python for Beginners as tutorial for dice rollers which were used in the fight and foyer_battles functions (https://www.pythonforbeginners.com/code-snippets-source-code/game-rolling-the-dice)
+I had used this article by Python for Beginners as tutorial for dice rollers which were used in the fight and foyer_battles functions [Python for beginners](https://www.pythonforbeginners.com/code-snippets-source-code/game-rolling-the-dice)
 
-I had used this page on Stack Overflow as a tutorial for subprocesses and calling external python files (https://stackoverflow.com/questions/9318581/python-how-do-i-call-external-python-programs)
+I had used this page on Stack Overflow as a tutorial for subprocesses and calling external python files [Stack Overflow](https://stackoverflow.com/questions/9318581/python-how-do-i-call-external-python-programs)
   

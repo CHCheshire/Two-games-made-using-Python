@@ -1,10 +1,10 @@
 import os
 import random
 import subprocess
+import time
 from words.animals import animals_list
 from words.countries import countries_list
 from words.cities import cities_list
-import time
 
 
 def clear():
@@ -26,17 +26,14 @@ def choose_word_list():
     if player_choice == '1':
         print("You've chosen the animals list")
         word = random.choice(animals_list)
-        # return word.upper()
         play(word)
     elif player_choice == '2':
         print("You've chosen the cities list")
         word = random.choice(cities_list)
-        # return word.upper()
         play(word)
     elif player_choice == '3':
         print("You've chosen the countries list")
         word = random.choice(countries_list)
-        # return word.upper()
         play(word)
     elif player_choice == '4':
         print("Thank you for playing Hangman!")
