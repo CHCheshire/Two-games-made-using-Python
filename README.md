@@ -118,9 +118,9 @@ Any bugs that occured in the code I have spoken about in the testing section and
 ### Validator Testing
 * PEP8
     * No errors were returned from PEP8online.com
-![Main menu validation](documentation/main-menu-validation.png)
+![Main menu validation](documentation/main-menu-check.png)
 
-![Hangman validation](documentation/hangman-validation.png)
+![Hangman validation](documentation/hangman-check.png)
 
 ![Escape from the manor validation](/documentation/escape-check.png)
 
